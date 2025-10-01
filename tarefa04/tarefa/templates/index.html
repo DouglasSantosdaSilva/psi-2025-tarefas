@@ -13,8 +13,8 @@
     
     <ul>
         {% for tarefa in tarefas %}
-            <li class="{% if tarefa.prazo < hoje and tarefa.status != 'concluida' %}atrasada{% endif %}">
-                <strong>{{ tarefa.nome }}</strong> -
+            <li> 
+                {{ tarefa.nome }}
                 Status: {{ tarefa.get_status_display }} -
                 Prazo: {{ tarefa.prazo }}
             </li>
