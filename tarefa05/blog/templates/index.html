@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Postagens</h2>
+
+{% for post in posts %}
+    <h3><a href="{% url 'post' post.id %}">{{ post.titulo }}</a></h3>
+    <p><small>{{ post.data_publicacao|date:"d/m/Y H:i" }}</small></p>
+    <img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" width="300"><br>
+    <p>{{ post.conteudo|truncatewords:20 }}</p>
+    <hr>
+{% empty %}
+    <p>Nenhuma postagem ainda.</p>
+{% endfor %}
+{% endblock %}
